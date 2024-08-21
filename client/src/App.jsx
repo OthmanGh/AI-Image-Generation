@@ -5,14 +5,14 @@ import { logo } from './assets';
 const App = () => {
   return (
     <BrowserRouter>
-      <header className="w-full flex justify-between bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4] text-3xl">
+      <header className="w-full flex justify-between items-center bg-white sm:px-8 px-4 py-4 border-b border-b-[#e6ebf4] text-3xl">
         <Link to="/">
-          <img src={logo} className="w-20 object-contain" />
+          <img src={logo} className="sm:w-[6rem] w-20 object-contain" />
         </Link>
 
         <Link
           to="/create-post"
-          className="font-inter font-medium bg-[#6469ff] hover:bg-[#595de7] transition-all duration-300 text-white text-sm px-4 py-2 rounded-md"
+          className="font-inter font-medium bg-[#6469ff] hover:bg-[#595de7] transition-all duration-300 text-white sm:text-[1.1rem] text-[1rem] px-4 py-1 rounded-md"
         >
           Create
         </Link>
