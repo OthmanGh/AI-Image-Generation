@@ -1,17 +1,24 @@
-import e from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
+import connect from './config/db.js';
+import app from './app.js';
 
-dotenv.config();
-const app = e();
+const port = process.env.PORT || 8000;
+const databaseConnectionUri = process.env.MONGODB_URI.replace('<PASSWORD>', process.env.DB_PASSWORD);
+console.log(databaseConnectionUri);
 
-app.use(cors());
-app.use(e.json({ limit: '50mb' }));
+const server = async () => {
+  try {
+    connect(databaseConnectionUri);
 
-app.get('/', async (req, res) => {
-  res.send('Hello from DALL-E!');
-});
+    app.listen(port, () => {
+      console.log(`Server has started on port: http://localhost:${port}`);
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-app.listen(8000, () => {
-  console.log('Server has started on port: http://localhost:8000');
-});
+server();
+
+// FWezdDFy6svJgwMW
+// 22pK@AeAHmEXpVg
+// zuS7XkVT54Wg4uTf
